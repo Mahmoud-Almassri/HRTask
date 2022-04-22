@@ -1,0 +1,54 @@
+﻿@model HR_Task.Models.VMEmployee
+           @using HR_Task.Models
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/Main.cshtml";
+}
+
+@section body{
+    <form method="post" action="HRController">
+    <table>
+        <tr>
+            <td>
+                @Html.Label("ID")
+            </td>
+            <td>
+                @Html.TextBoxFor(a=>a.VMEmp.ID)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("First Name");</td>
+            <td> @Html.TextBoxFor(a => a.VMEmp.First_Name);</td>
+            <td>@Html.Label("Last Name");</td>
+            <td>@Html.TextBoxFor(a => a.VMEmp.Last_Name);</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Country");</td>
+            <td> @Html.DropDownListFor(a => a.VMEmp.Country_ID, new SelectList(Model.VMCO, "ID", "Name")) </td>
+            <td>@Html.Label("City");</td>
+            <td>@Html.DropDownListFor(a => a.VMEmp.City_ID, new SelectList(Model.VMCi, "ID", "Name")) </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Email");</td>
+            <td> @Html.TextBoxFor(a => a.VMEmp.Email);</td>
+            <td>@Html.Label("Address");</td>
+            <td>@Html.TextBoxFor(a => a.VMEmp.Address);</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Salary");</td>
+            <td> @Html.TextBoxFor(a => a.VMEmp.Salary);</td>
+            <td>@Html.Label("Gender");</td>
+            <td>@Html.DropDownListFor(a => a.VMEmp.Gender, new SelectList(Enum.GetValues(typeof(Lookup.Ginder))))</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" name="Save" value="Save" /></td>
+            <td></td>
+            <td><input type="submit" name="Uodate" value="Update" /></td>
+        </tr>
+
+    </table>
+</form>
+
+}
+
